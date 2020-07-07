@@ -136,6 +136,10 @@ table {
           box-sizing: border-box;
 }
 
+body {
+  background-color: #0853c4;
+}
+
 #welcome-screen {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,7 +154,6 @@ table {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #0853c4;
   background-image: url("https://i.ya-webdesign.com/images/comic-book-explosion-background-png.png");
   background-size: 1260px;
   background-repeat: no-repeat;
@@ -171,6 +174,8 @@ table {
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
+  -webkit-box-shadow: 0 0 4px -2px #171717;
+          box-shadow: 0 0 4px -2px #171717;
   padding: .5rem;
   margin: 0 1.5rem;
 }
@@ -185,5 +190,23 @@ table {
   -webkit-box-shadow: 0 0 3px #482d05;
           box-shadow: 0 0 3px #482d05;
   background-color: #ffcc00;
+}
+
+#game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+  height: 100vh;
 }
 /*# sourceMappingURL=index.css.map */
