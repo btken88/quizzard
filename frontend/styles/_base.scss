@@ -132,13 +132,16 @@ table {
 }
 
 // My css
-
-* {
-  box-sizing: border-box;
-}
-
+$black: hsl(0, 0, 9);
 $red: hsl(356, 78%, 56%);
 $yellow: hsl(36, 88%, 58%);
+$darkyellow: hsl(36, 88%, 15%);
 $green: hsl(126, 45%, 45%);
+$darkgreen: hsl(126, 45%, 20%);
 $blue: hsl(216, 92%, 40%);
 $purple: hsl(306, 75%, 33%);
+
+* {
+  color: $black;
+  box-sizing: border-box;
+}

@@ -131,6 +131,7 @@ table {
 }
 
 * {
+  color: #171717;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -168,16 +169,21 @@ table {
   cursor: pointer;
   font-family: Archivo, sans-serif;
   font-size: 1.5rem;
-  border-radius: 0;
-  padding: .5rem;
   border: none;
+  border-radius: 5px;
+  padding: .5rem;
+  margin: 0 1.5rem;
 }
 
 #welcome-screen #start-game {
+  -webkit-box-shadow: 0 0 3px #1c4a21;
+          box-shadow: 0 0 3px #1c4a21;
   background-color: #3fa649;
 }
 
-#welcome-screen #sign-up {
+#welcome-screen #sign-in {
+  -webkit-box-shadow: 0 0 3px #482d05;
+          box-shadow: 0 0 3px #482d05;
   background-color: #ffcc00;
 }
 /*# sourceMappingURL=index.css.map */

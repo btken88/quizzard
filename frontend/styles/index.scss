@@ -22,16 +22,19 @@
     cursor: pointer;
     font-family: Archivo, sans-serif;
     font-size: 1.5rem;
-    border-radius: 0;
-    padding: .5rem;
     border: none;
+    border-radius: 5px;
+    padding: .5rem;
+    margin: 0 1.5rem;
   }
 
   #start-game {
+    box-shadow: 0 0 3px $darkgreen;
     background-color: $green;
   }
 
-  #sign-up {
+  #sign-in {
+    box-shadow: 0 0 3px $darkyellow;
     background-color: hsl(48, 100%, 50%);
   }
 }
