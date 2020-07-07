@@ -1,0 +1,37 @@
+@import './base';
+@import './flexbox';
+@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Bangers&display=swap');
+
+#welcome-screen {
+  @include centered-column;
+  background-color: $blue;
+  background-image: url('https://i.ya-webdesign.com/images/comic-book-explosion-background-png.png');
+  background-size: 1260px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 100vh;
+
+  h1 {
+    font-family: Bangers;
+    font-size: 9rem;
+    color: hsl(359, 90%, 50%);
+    text-shadow: 0px 0px 1px black;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: Archivo, sans-serif;
+    font-size: 1.5rem;
+    border-radius: 0;
+    padding: .5rem;
+    border: none;
+  }
+
+  #start-game {
+    background-color: $green;
+  }
+
+  #sign-up {
+    background-color: hsl(48, 100%, 50%);
+  }
+}
