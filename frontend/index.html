@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
   <section id="welcome-screen">
     <h1>Quizard</h1>
     <div>
@@ -16,6 +17,7 @@
       <button id="sign-in">Sign In / Up</button>
     </div>
   </section>
+
   <section id="game">
     <div class="game-header">
       <h1>Quizard</h1>
@@ -24,12 +26,28 @@
         <p class="total">0</p>
       </div>
     </div>
+    <div class="select-category">
+      <p>Choose a Category: </p>
+      <select name="category" id="categories">
+        <option value="9">General Knowledge</option>
+        <option value="17">Science and Nature</option>
+        <option value="18">Science: Computers</option>
+        <option value="20">Mythology</option>
+        <option value="22">Geography</option>
+        <option value="23">History</option>
+        <option value="24">Politics</option>
+        <option value="27">Animals</option>
+        <option value="28">Vehicles</option>
+      </select>
+      <button class="submit-category">Start Game</button>
+    </div>
     <div class="question-card">
       <p></p>
       <div class="options"></div>
       <button class="next hidden">Next</button>
     </div>
   </section>
+
   <section id="game-end">
     <div class="game-header">
       <h1>Quizard</h1>
@@ -39,6 +57,7 @@
       <button id="restart">Play Again</button>
     </div>
   </section>
+
   <script src="index.js" type="module"></script>
 </body>
 

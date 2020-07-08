@@ -3,32 +3,47 @@ import { endGame } from './endGame.js'
 const $restartButton = document.querySelector('#restart')
 const $gameSection = document.querySelector('#game');
 const $options = document.querySelector('.options');
+const $questionCard = document.querySelector('.question-card')
 const $question = document.querySelector('.question-card p');
 const $nextButton = document.querySelector('.next');
 const $answerTotal = document.querySelector('.total');
+const $startButton = document.querySelector('.submit-category');
+const $categoriesDiv = document.querySelector('.select-category');
+const $selectedCategory = document.querySelector('#categories');
+const $gameEndSection = document.querySelector('#game-end')
+
 let totalCorrect, shuffledQuestions, currentQuestionIndex;
 
+$startButton.addEventListener('click', playGame)
 $nextButton.addEventListener('click', () => {
   currentQuestionIndex += 1;
   setNextQuestion()
 })
-$restartButton.addEventListener('click', startGame)
+$restartButton.addEventListener('click', showCategories)
 
-function startGameEvent() {
-  const $startGameButton = document.querySelector('#start-game');
-  $startGameButton.addEventListener('click', startGame);
+function showCategories() {
+  $questionCard.style.display = "none"
+  $gameEndSection.style.display = "none";
+  $gameSection.style.display = "flex"
+  $categoriesDiv.style.display = "flex";
+  $answerTotal.textContent = "0";
+  totalCorrect = 0;
+  resetState()
 }
 
 function startGame(event) {
+  $questionCard.style.display = "none";
   event.path[2].style.display = "none";
   $gameSection.style.display = "flex";
   $answerTotal.textContent = "0";
   totalCorrect = 0;
-  playGame()
 }
 
+
 function playGame() {
-  fetch('https://opentdb.com/api.php?amount=10&category=18')
+  $categoriesDiv.style.display = "none";
+  $questionCard.style.display = "block";
+  fetch(`https://opentdb.com/api.php?amount=10&category=${$selectedCategory.value}`)
     .then(renderJSON)
     .then(data => formatData(data.results))
     .then(renderGame)
@@ -107,6 +122,4 @@ function decodeHTML(html) {
 }
 
 
-// function renderQuestionCard
-
-export { startGameEvent, startGame };
+export { startGame };

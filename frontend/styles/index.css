@@ -214,17 +214,7 @@ body {
   display: none;
 }
 
-#game .question-card {
-  border-radius: 5px;
-  -webkit-box-shadow: 0 0 15px -2px #2d0629;
-          box-shadow: 0 0 15px -2px #2d0629;
-  width: 600px;
-  background-color: #931587;
-  margin-top: 6rem;
-  padding: 3rem;
-}
-
-#game .question-card button {
+#game button {
   cursor: pointer;
   font-family: Archivo, sans-serif;
   font-size: 1rem;
@@ -234,6 +224,63 @@ body {
           box-shadow: 0 0 6px -2px #2d0629;
   padding: .5rem;
   margin: .5rem;
+}
+
+#game .select-category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px -2px #2d0629;
+          box-shadow: 0 0 15px -2px #2d0629;
+  width: 600px;
+  padding: 2rem;
+  margin-top: 6rem;
+  background-color: #931587;
+}
+
+#game .select-category p {
+  font-size: 1.1rem;
+  background-color: whitesmoke;
+  padding: 1rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#game .select-category select {
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  font-family: Archivo, sans-serif;
+}
+
+#game .select-category button {
+  background-color: #f2a736;
+}
+
+#game .question-card {
+  display: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px -2px #2d0629;
+          box-shadow: 0 0 15px -2px #2d0629;
+  width: 600px;
+  background-color: #931587;
+  margin-top: 6rem;
+  padding: 3rem;
 }
 
 #game .question-card .next {
@@ -331,21 +378,25 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100vw;
   padding: 1rem;
   -webkit-box-shadow: 0 0 5px #482d05;
           box-shadow: 0 0 5px #482d05;
   background-color: #f2a736;
-  font-size: 3rem;
 }
 
 .game-header h1 {
+  font-size: 3rem;
   font-family: Bangers;
   color: #e63743;
   text-shadow: 0px 0px 1px black;
 }
 
 .game-header .answer-count {
+  font-size: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
