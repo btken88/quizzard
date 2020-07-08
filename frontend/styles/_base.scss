@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Bangers&display=swap');
+
 // Meyer reset
 
 html,
@@ -137,9 +139,10 @@ $red: hsl(356, 78%, 56%);
 $yellow: hsl(36, 88%, 58%);
 $darkyellow: hsl(36, 88%, 15%);
 $green: hsl(126, 45%, 45%);
-$darkgreen: hsl(126, 45%, 20%);
+$darkgreen: hsl(127, 45%, 20%);
 $blue: hsl(216, 92%, 40%);
 $purple: hsl(306, 75%, 33%);
+$darkpurple: hsl(306, 75%, 10%);
 
 * {
   color: $black;
@@ -148,4 +151,5 @@ $purple: hsl(306, 75%, 33%);
 
 body {
   background-color: $blue;
+  font-family: Archivo, sans-serif;
 }

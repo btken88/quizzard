@@ -2,10 +2,6 @@
 <html lang="en">
 
 <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="/favicon_io/site.webmanifest">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles/index.css" />
@@ -21,8 +17,27 @@
     </div>
   </section>
   <section id="game">
-    <div class="question"></div>
-    <div class="options"></div>
+    <div class="game-header">
+      <h1>Quizard</h1>
+      <div class="answer-count">
+        <p>Correct: </p>
+        <p class="total">0</p>
+      </div>
+    </div>
+    <div class="question-card">
+      <p></p>
+      <div class="options"></div>
+      <button class="next hidden">Next</button>
+    </div>
+  </section>
+  <section id="game-end">
+    <div class="game-header">
+      <h1>Quizard</h1>
+    </div>
+    <div class="result-card">
+      <p id="game-end-content">Score</p>
+      <button id="restart">Play Again</button>
+    </div>
   </section>
   <script src="index.js" type="module"></script>
 </body>

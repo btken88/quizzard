@@ -1,7 +1,9 @@
 @import './base';
 @import './flexbox';
-@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Bangers&display=swap');
 
+.hidden {
+  display: none;
+}
 
 #welcome-screen {
   @include centered-column;
@@ -9,7 +11,7 @@
   background-size: 1260px;
   background-repeat: no-repeat;
   background-position-x: center;
-  height: 100vh;
+  height: 760px;
 
   h1 {
     font-family: Bangers;
@@ -44,5 +46,104 @@
 #game {
   @include centered-column;
   display: none;
-  height: 100vh;
+
+  .question-card {
+    border-radius: 5px;
+    box-shadow: 0 0 15px -2px $darkpurple;
+    width: 600px;
+    background-color: $purple;
+    margin-top: 6rem;
+    padding: 3rem;
+
+    button {
+      cursor: pointer;
+      font-family: Archivo, sans-serif;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 6px -2px $darkpurple;
+      padding: .5rem;
+      margin: .5rem;
+    }
+
+    .next {
+      background-color: $yellow;
+    }
+
+    p {
+      font-size: 1.1rem;
+      background-color: whitesmoke;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 0 6px -2px $darkpurple;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 10px;
+      margin: 10px;
+    }
+
+  }
+
+}
+
+#game-end {
+  @include centered-column;
+  display: none;
+
+  .result-card {
+    @include centered-column;
+    border-radius: 5px;
+    box-shadow: 0 0 15px -2px $darkpurple;
+    width: 400px;
+    height: 300px;
+    background-color: $purple;
+    margin-top: 6rem;
+    padding: 3rem;
+
+    p {
+      font-size: 1.1rem;
+      background-color: whitesmoke;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 0 6px -2px $darkpurple;
+      text-align: center;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: Archivo, sans-serif;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 6px -2px $darkpurple;
+      padding: .5rem;
+      margin: .5rem;
+    }
+  }
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 1rem;
+  box-shadow: 0 0 5px $darkyellow;
+  background-color: $yellow;
+  font-size: 3rem;
+
+  h1 {
+    font-family: Bangers;
+    color: $red;
+    text-shadow: 0px 0px 1px black;
+  }
+
+  .answer-count {
+    display: flex;
+  }
 }

@@ -138,6 +138,11 @@ table {
 
 body {
   background-color: #0853c4;
+  font-family: Archivo, sans-serif;
+}
+
+.hidden {
+  display: none;
 }
 
 #welcome-screen {
@@ -158,7 +163,7 @@ body {
   background-size: 1260px;
   background-repeat: no-repeat;
   background-position-x: center;
-  height: 100vh;
+  height: 760px;
 }
 
 #welcome-screen h1 {
@@ -207,6 +212,142 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   display: none;
-  height: 100vh;
+}
+
+#game .question-card {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px -2px #2d0629;
+          box-shadow: 0 0 15px -2px #2d0629;
+  width: 600px;
+  background-color: #931587;
+  margin-top: 6rem;
+  padding: 3rem;
+}
+
+#game .question-card button {
+  cursor: pointer;
+  font-family: Archivo, sans-serif;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  padding: .5rem;
+  margin: .5rem;
+}
+
+#game .question-card .next {
+  background-color: #f2a736;
+}
+
+#game .question-card p {
+  font-size: 1.1rem;
+  background-color: whitesmoke;
+  padding: 1rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#game .question-card .options {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[2];
+      grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 10px;
+}
+
+#game-end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+}
+
+#game-end .result-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px -2px #2d0629;
+          box-shadow: 0 0 15px -2px #2d0629;
+  width: 400px;
+  height: 300px;
+  background-color: #931587;
+  margin-top: 6rem;
+  padding: 3rem;
+}
+
+#game-end .result-card p {
+  font-size: 1.1rem;
+  background-color: whitesmoke;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  text-align: center;
+}
+
+#game-end .result-card button {
+  cursor: pointer;
+  font-family: Archivo, sans-serif;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  padding: .5rem;
+  margin: .5rem;
+}
+
+.game-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100vw;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 5px #482d05;
+          box-shadow: 0 0 5px #482d05;
+  background-color: #f2a736;
+  font-size: 3rem;
+}
+
+.game-header h1 {
+  font-family: Bangers;
+  color: #e63743;
+  text-shadow: 0px 0px 1px black;
+}
+
+.game-header .answer-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=index.css.map */
