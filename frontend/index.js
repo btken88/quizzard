@@ -1,5 +1,6 @@
 const db = {
   users: "http://localhost:3001/users",
+  login: "http://localhost:3001/login",
   games: "http://localhost:3001/games"
 }
 const $ = {
@@ -22,6 +23,8 @@ const $ = {
   gameEndContent: document.querySelector('#game-end-content'),
   restartButton: document.querySelector('#restart'),
 }
+
+const token = localStorage.getItem("token");
 
 let totalCorrect, shuffledQuestions, currentQuestionIndex;
 
@@ -53,6 +56,26 @@ function guestUserEvent() {
 
 function userLogin(event) {
   event.preventDefault();
+  const formData = new FormData(event.target);
+  const username = formData.get('username');
+  const password = formData.get('password');
+  const user = {
+    username,
+    password
+  };
+  fetch(db.login, {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user)
+  }).then(renderJSON)
+    .then(response => grantUserAccess(response.token))
+    .catch(errorAlert);
+}
+
+function grantUserAccess(token) {
+  localStorage.setItem("token", token);
+  $.accountSection.style.display = "none";
+  showCategories();
 }
 
 function createAccount(event) {
@@ -73,7 +96,7 @@ function createAccount(event) {
       successfulCreation(response);
       event.target.reset()
     })
-    .catch(errorAlert)
+    .catch(errorAlert);
 }
 
 function successfulCreation() {
