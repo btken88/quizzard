@@ -31,7 +31,11 @@ const $ = {
 
 let token = localStorage.getItem("token");
 
-let totalCorrect, shuffledQuestions, currentQuestionIndex, user, categoryText;
+let totalCorrect,
+  shuffledQuestions,
+  currentQuestionIndex,
+  user,
+  categoryText;
 
 $.login.addEventListener('submit', userLogin)
 
@@ -110,8 +114,10 @@ function createAccount(event) {
   const username = formData.get('username');
   const password = formData.get('password');
   const user = {
-    username,
-    password
+    user: {
+      username,
+      password
+    }
   }
   fetch(db.users, {
     method: 'POST',
@@ -248,7 +254,10 @@ function saveScore() {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     },
-    body: JSON.stringify({ score: totalCorrect })
+    body: JSON.stringify({
+      score: totalCorrect,
+      category: categoryText
+    })
   }).then(renderJSON)
     .catch(errorAlert)
 }
@@ -260,11 +269,13 @@ function showScores() {
   user.games.forEach(game => {
     const date = game.created_at.split('T')[0]
     const $li = document.createElement('li');
-    $li.textContent = `Score: ${game.score} Date: ${date}`
+    $li.textContent = `
+      Score: ${game.score} Category: ${game.category} Date: ${date}`
     $.games.append($li);
   })
   const $li = document.createElement('li');
-  $li.textContent = `Score: ${totalCorrect} Category: ${categoryText} Date: ${currentDate()}`
+  $li.textContent = `
+    Score: ${totalCorrect} Category: ${categoryText} Date: ${currentDate()}`
   $.games.append($li)
 }
 

@@ -513,6 +513,7 @@ body {
   font-size: 1rem;
   border: none;
   border-radius: 5px;
+  background-color: #3fa649;
   -webkit-box-shadow: 0 0 6px -2px #2d0629;
           box-shadow: 0 0 6px -2px #2d0629;
   padding: .5rem;
@@ -536,7 +537,6 @@ body {
   border-radius: 5px;
   -webkit-box-shadow: 0 0 15px -2px #2d0629;
           box-shadow: 0 0 15px -2px #2d0629;
-  width: 500px;
   background-color: #931587;
   margin-top: 6rem;
   padding: 2rem 3rem;

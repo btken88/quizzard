@@ -6,7 +6,8 @@ class GamesController < ApplicationController
   def create
     @game = Game.create({
                           user_id: @user.id,
-                          score: params[:score]
+                          score: params[:score],
+                          category: params[:category]
                         })
     render json: { game: @game }, status: :created
   end
