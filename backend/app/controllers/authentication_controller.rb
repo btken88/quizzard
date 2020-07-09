@@ -5,10 +5,10 @@ class AuthenticationController < ApplicationController
     @user = User.find_by username: params[:username]
 
     if !@user
-      render json: { error: 'Authentication failed.' } # , status: :unauthorized
+      render json: { error: 'Authentication failed.' }, status: :unauthorized
     else
       if !@user.authenticate params[:password]
-        render json: { error: 'Authentication failed!' } # , status: :unauthorized
+        render json: { error: 'Authentication failed!' }, status: :unauthorized
       else
         payload = { user_id: @user.id }
         secret = Rails.application.secret_key_base

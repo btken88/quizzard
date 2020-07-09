@@ -31,11 +31,7 @@ const $ = {
 
 let token = localStorage.getItem("token");
 
-let totalCorrect,
-  shuffledQuestions,
-  currentQuestionIndex,
-  user,
-  categoryText;
+let totalCorrect, shuffledQuestions, currentQuestionIndex, user, categoryText;
 
 $.login.addEventListener('submit', userLogin)
 
@@ -65,15 +61,15 @@ function getUser() {
 }
 
 function signInEvent() {
-  $.signInButton.addEventListener('click', signIn);
+  $.signInButton.addEventListener('click', showSignInScreen);
 }
 
-function signIn() {
+function showSignInScreen() {
   $.welcomeScreen.style.display = "none";
   $.accountSection.style.display = "flex";
 }
 
-function guestUserEvent() {
+function startGameEvent() {
   $.startGameButton.addEventListener('click', showCategories);
 }
 
@@ -91,11 +87,17 @@ function userLogin(event) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user)
   }).then(renderJSON)
-    .then(response => {
-      grantUserAccess(response.token)
-      storeUserData(response.user)
-    })
+    .then(handleResponse)
     .catch(errorAlert);
+}
+
+function handleResponse(response) {
+  if (response.error) {
+    alert(`Error! ${response.error}`)
+  } else {
+    grantUserAccess(response.token)
+    storeUserData(response.user)
+  }
 }
 
 function grantUserAccess(token) {
@@ -138,7 +140,7 @@ function successfulCreation() {
 }
 
 function errorAlert(error) {
-  alert("Error!", error.message)
+  alert(`Error! ${error.message}`)
 }
 
 function showCategories() {
@@ -307,4 +309,4 @@ function scrambleOptions(options) {
 }
 
 signInEvent()
-guestUserEvent()
+startGameEvent()
