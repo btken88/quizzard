@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  validates :username, uniqueness: true
+  before_action :authorize, only: :index
 
-  def show
-    @user = User.find(params[:user_id])
+  def index
     render json: @user, include: :games
   end
 

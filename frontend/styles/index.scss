@@ -218,6 +218,11 @@
   }
 }
 
+#user-page {
+  @include centered-column;
+  display: none;
+}
+
 .game-header {
   display: flex;
   justify-content: space-between;
@@ -238,5 +243,41 @@
   .answer-count {
     font-size: 2rem;
     display: flex;
+  }
+}
+
+.start-game {
+  cursor: pointer;
+  font-family: Archivo, sans-serif;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 6px -2px $darkpurple;
+  padding: .5rem;
+  margin: .5rem;
+}
+
+.user-info {
+  @include centered-column;
+  border-radius: 5px;
+  box-shadow: 0 0 15px -2px $darkpurple;
+  width: 500px;
+  background-color: $purple;
+  margin-top: 6rem;
+  padding: 2rem 3rem;
+
+  h2 {
+    font-size: 1.5rem;
+    color: #f2a736;
+    text-shadow: 0px 0px 2px $darkyellow;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+    padding: 3px 8px;
   }
 }

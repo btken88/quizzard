@@ -8,12 +8,13 @@ const $ = {
   accountSection: document.querySelector('#account-section'),
   gameSection: document.querySelector('#game'),
   gameEndSection: document.querySelector('#game-end'),
-  guestUserButton: document.querySelector('#guest-user'),
+  userSection: document.querySelector('#user-page'),
+  startGameButton: document.querySelector('.start-game'),
   login: document.querySelector('#login'),
   createAccount: document.querySelector('#create-account'),
   categoriesDiv: document.querySelector('.select-category'),
   selectedCategory: document.querySelector('#categories'),
-  startButton: document.querySelector('.submit-category'),
+  submitCategory: document.querySelector('.submit-category'),
   answerTotal: document.querySelector('.total'),
   questionCard: document.querySelector('.question-card'),
   question: document.querySelector('.question-card p'),
@@ -22,18 +23,21 @@ const $ = {
   signInButton: document.querySelector('#sign-in'),
   gameEndContent: document.querySelector('#game-end-content'),
   restartButton: document.querySelector('#restart'),
-  saveScore: document.querySelector('#save-score')
+  saveScore: document.querySelector('#save-score'),
+  userInfo: document.querySelector('.user-info'),
+  username: document.querySelector('.username'),
+  games: document.querySelector('.games')
 }
 
-const token = localStorage.getItem("token");
+let token = localStorage.getItem("token");
 
-let totalCorrect, shuffledQuestions, currentQuestionIndex;
+let totalCorrect, shuffledQuestions, currentQuestionIndex, user, categoryText;
 
 $.login.addEventListener('submit', userLogin)
 
 $.createAccount.addEventListener('submit', createAccount)
 
-$.startButton.addEventListener('click', playGame)
+$.submitCategory.addEventListener('click', playGame)
 
 $.nextButton.addEventListener('click', () => {
   currentQuestionIndex += 1;
@@ -43,6 +47,18 @@ $.nextButton.addEventListener('click', () => {
 $.restartButton.addEventListener('click', showCategories);
 
 $.saveScore.addEventListener('click', saveScore)
+
+function getUser() {
+  if (token) {
+    fetch(db.users, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    }).then(renderJSON)
+      .then(storeUserData)
+  }
+}
 
 function signInEvent() {
   $.signInButton.addEventListener('click', signIn);
@@ -54,7 +70,7 @@ function signIn() {
 }
 
 function guestUserEvent() {
-  $.guestUserButton.addEventListener('click', showCategories);
+  $.startGameButton.addEventListener('click', showCategories);
 }
 
 function userLogin(event) {
@@ -71,7 +87,10 @@ function userLogin(event) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user)
   }).then(renderJSON)
-    .then(response => grantUserAccess(response.token))
+    .then(response => {
+      grantUserAccess(response.token)
+      storeUserData(response.user)
+    })
     .catch(errorAlert);
 }
 
@@ -79,6 +98,10 @@ function grantUserAccess(token) {
   localStorage.setItem("token", token);
   $.accountSection.style.display = "none";
   showCategories();
+}
+
+function storeUserData(userData) {
+  user = userData
 }
 
 function createAccount(event) {
@@ -119,6 +142,7 @@ function showCategories() {
   $.categoriesDiv.style.display = "flex";
   $.answerTotal.textContent = "0";
   $.welcomeScreen.style.display = "none";
+  $.userSection.style.display = "none";
   totalCorrect = 0;
   resetState()
 }
@@ -131,6 +155,8 @@ function startGame(event) {
 }
 
 function playGame() {
+  categoryText = $.selectedCategory.selectedOptions[0].textContent;
+  token = localStorage.getItem("token");
   $.categoriesDiv.style.display = "none";
   $.questionCard.style.display = "block";
   fetch(`https://opentdb.com/api.php?amount=10&category=${$.selectedCategory.value}`)
@@ -206,6 +232,7 @@ function selectAnswer(event) {
 function endGame(score) {
   if (token) {
     $.saveScore.style.display = "block";
+    getUser()
   }
   $.gameSection.style.display = "none"
   $.gameEndSection.style.display = "flex"
@@ -213,16 +240,47 @@ function endGame(score) {
 }
 
 function saveScore() {
+  $.gameEndSection.style.display = 'none';
+  showScores()
   fetch(db.games, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${localStorage.getItem("token")}`
+      "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify({ score: totalCorrect })
   }).then(renderJSON)
-    .then(showScores)
     .catch(errorAlert)
+}
+
+function showScores() {
+  $.games.innerHTML = ''
+  $.userSection.style.display = 'flex';
+  $.username.textContent = `Welcome Back ${user.username}!`;
+  user.games.forEach(game => {
+    const date = game.created_at.split('T')[0]
+    const $li = document.createElement('li');
+    $li.textContent = `Score: ${game.score} Date: ${date}`
+    $.games.append($li);
+  })
+  const $li = document.createElement('li');
+  $li.textContent = `Score: ${totalCorrect} Category: ${categoryText} Date: ${currentDate()}`
+  $.games.append($li)
+}
+
+function currentDate() {
+  const today = new Date();
+  let dd = today.getDate();
+  let mm = today.getMonth() + 1;
+  let yyyy = today.getFullYear();
+
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+  return `${yyyy}-${mm}-${dd}`
 }
 
 // Decodes HTML entities and returns string with characters

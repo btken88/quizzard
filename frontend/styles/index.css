@@ -458,6 +458,23 @@ body {
   display: none;
 }
 
+#user-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+}
+
 .game-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -488,5 +505,55 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.start-game {
+  cursor: pointer;
+  font-family: Archivo, sans-serif;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  padding: .5rem;
+  margin: .5rem;
+}
+
+.user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px -2px #2d0629;
+          box-shadow: 0 0 15px -2px #2d0629;
+  width: 500px;
+  background-color: #931587;
+  margin-top: 6rem;
+  padding: 2rem 3rem;
+}
+
+.user-info h2 {
+  font-size: 1.5rem;
+  color: #f2a736;
+  text-shadow: 0px 0px 2px #482d05;
+  margin-bottom: 1rem;
+}
+
+.user-info li {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  text-align: center;
+  margin: 5px;
+  padding: 3px 8px;
 }
 /*# sourceMappingURL=index.css.map */
