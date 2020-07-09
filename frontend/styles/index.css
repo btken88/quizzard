@@ -197,6 +197,89 @@ body {
   background-color: #ffcc00;
 }
 
+#account-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+}
+
+#account-section input[type=submit] {
+  background-color: #f2a736;
+}
+
+#account-section .sign-in {
+  margin-bottom: 2rem;
+}
+
+#account-section #account-info {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  padding: 3rem;
+  margin-top: 6rem;
+  background-color: #931587;
+  -webkit-box-shadow: 0 0 15px -2px #2d0629;
+          box-shadow: 0 0 15px -2px #2d0629;
+  border-radius: 5px;
+}
+
+#account-section #account-info div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#account-section #account-info p {
+  background-color: whitesmoke;
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+#account-section #account-info input {
+  -webkit-box-shadow: 0 0 6px -2px #2d0629;
+          box-shadow: 0 0 6px -2px #2d0629;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: Archivo, sans-serif;
+  padding: .5rem;
+  margin: .5rem;
+  border: none;
+}
+
+#account-section #account-info:first-child {
+  margin-bottom: 1rem;
+}
+
 #game {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -389,6 +472,7 @@ body {
 }
 
 .game-header h1 {
+  letter-spacing: 3px;
   font-size: 3rem;
   font-family: Bangers;
   color: #e63743;

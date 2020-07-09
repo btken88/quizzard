@@ -1,8 +1,8 @@
-import { startGame } from './startGame.js'
+import { showCategories } from './startGame.js'
 
 function guestUserEvent() {
   const $guestUserButton = document.querySelector('#guest-user');
-  $guestUserButton.addEventListener('click', startGame)
+  $guestUserButton.addEventListener('click', showCategories)
 }
 
 export { guestUserEvent }

@@ -4,7 +4,7 @@ function signInEvent() {
 }
 
 function signIn(event) {
-  console.log('Account feature coming soon!')
+  alert('Account feature coming soon!')
 }
 
 export { signInEvent }

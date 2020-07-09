@@ -43,6 +43,59 @@
 
 }
 
+#account-section {
+  @include centered-column;
+  display: none;
+
+  input[type=submit] {
+    background-color: $yellow;
+  }
+
+  .sign-in {
+    margin-bottom: 2rem;
+  }
+
+  #account-info {
+    flex-flow: column wrap;
+    padding: 3rem;
+    margin-top: 6rem;
+    background-color: $purple;
+    box-shadow: 0 0 15px -2px $darkpurple;
+    border-radius: 5px;
+
+    div {
+      @include centered-column;
+      justify-content: space-between;
+    }
+
+
+    p {
+      background-color: whitesmoke;
+      box-shadow: 0 0 6px -2px $darkpurple;
+      padding: .5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 1.25rem;
+    }
+
+    input {
+      box-shadow: 0 0 6px -2px $darkpurple;
+      font-size: 1rem;
+      border-radius: 5px;
+      font-family: Archivo, sans-serif;
+      padding: .5rem;
+      margin: .5rem;
+      border: none;
+    }
+  }
+
+  #account-info:first-child {
+    margin-bottom: 1rem;
+  }
+
+}
+
 #game {
   @include centered-column;
   display: none;
@@ -171,6 +224,7 @@
   background-color: $yellow;
 
   h1 {
+    letter-spacing: 3px;
     font-size: 3rem;
     font-family: Bangers;
     color: $red;
