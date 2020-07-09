@@ -17,7 +17,7 @@
     font-family: Bangers;
     font-size: 9rem;
     color: hsl(359, 90%, 50%);
-    text-shadow: 0px 0px 1px black;
+    text-shadow: 0px 0px 3px black;
   }
 
   button {
@@ -242,12 +242,11 @@
 
   .answer-count {
     font-size: 2rem;
-    text-shadow: 0px 0px 3px black;
     display: flex;
   }
 }
 
-.start-game {
+.restart {
   cursor: pointer;
   font-family: Archivo, sans-serif;
   font-size: 1rem;
@@ -280,5 +279,9 @@
     text-align: center;
     margin: 5px;
     padding: 3px 8px;
+
+    .left {
+      margin-right: 2rem;
+    }
   }
 }

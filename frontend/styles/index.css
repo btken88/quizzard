@@ -170,7 +170,7 @@ body {
   font-family: Bangers;
   font-size: 9rem;
   color: #f20d11;
-  text-shadow: 0px 0px 1px black;
+  text-shadow: 0px 0px 3px black;
 }
 
 #welcome-screen button {
@@ -502,13 +502,12 @@ body {
 
 .game-header .answer-count {
   font-size: 2rem;
-  text-shadow: 0px 0px 3px black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.start-game {
+.restart {
   cursor: pointer;
   font-family: Archivo, sans-serif;
   font-size: 1rem;
@@ -556,5 +555,9 @@ body {
   text-align: center;
   margin: 5px;
   padding: 3px 8px;
+}
+
+.user-info li .left {
+  margin-right: 2rem;
 }
 /*# sourceMappingURL=index.css.map */

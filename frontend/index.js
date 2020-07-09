@@ -22,7 +22,7 @@ const $ = {
   nextButton: document.querySelector('.next'),
   signInButton: document.querySelector('#sign-in'),
   gameEndContent: document.querySelector('#game-end-content'),
-  restartButton: document.querySelector('#restart'),
+  restartButtons: document.querySelectorAll('.restart'),
   saveScore: document.querySelector('#save-score'),
   userInfo: document.querySelector('.user-info'),
   username: document.querySelector('.username'),
@@ -44,7 +44,9 @@ $.nextButton.addEventListener('click', () => {
   setNextQuestion();
 })
 
-$.restartButton.addEventListener('click', showCategories);
+$.restartButtons.forEach(button => {
+  button.addEventListener('click', showCategories);
+})
 
 $.saveScore.addEventListener('click', saveScore)
 
@@ -270,15 +272,18 @@ function showScores() {
   $.username.textContent = `Welcome Back ${user.username}!`;
   user.games.forEach(game => {
     const date = game.created_at.split('T')[0]
-    const $li = document.createElement('li');
-    $li.textContent = `
-      Score: ${game.score} Category: ${game.category} Date: ${date}`
-    $.games.append($li);
+    createLi(game, date)
   })
+  createLi({ score: totalCorrect, category: categoryText }, currentDate())
+}
+
+function createLi(game, date) {
   const $li = document.createElement('li');
-  $li.textContent = `
-    Score: ${totalCorrect} Category: ${categoryText} Date: ${currentDate()}`
-  $.games.append($li)
+  $li.innerHTML = `
+    <span class="left">Score: ${game.score}</span>
+    <span class="left">Category: ${game.category}</span>
+    <span>Date: ${date}</span>`
+  $.games.append($li);
 }
 
 function currentDate() {
