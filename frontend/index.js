@@ -22,6 +22,7 @@ const $ = {
   signInButton: document.querySelector('#sign-in'),
   gameEndContent: document.querySelector('#game-end-content'),
   restartButton: document.querySelector('#restart'),
+  saveScore: document.querySelector('#save-score')
 }
 
 const token = localStorage.getItem("token");
@@ -40,6 +41,8 @@ $.nextButton.addEventListener('click', () => {
 })
 
 $.restartButton.addEventListener('click', showCategories);
+
+$.saveScore.addEventListener('click', saveScore)
 
 function signInEvent() {
   $.signInButton.addEventListener('click', signIn);
@@ -127,7 +130,6 @@ function startGame(event) {
   totalCorrect = 0;
 }
 
-
 function playGame() {
   $.categoriesDiv.style.display = "none";
   $.questionCard.style.display = "block";
@@ -202,9 +204,25 @@ function selectAnswer(event) {
 }
 
 function endGame(score) {
+  if (token) {
+    $.saveScore.style.display = "block";
+  }
   $.gameSection.style.display = "none"
   $.gameEndSection.style.display = "flex"
   $.gameEndContent.textContent = `You scored ${score}/10!`
+}
+
+function saveScore() {
+  fetch(db.games, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.getItem("token")}`
+    },
+    body: JSON.stringify({ score: totalCorrect })
+  }).then(renderJSON)
+    .then(showScores)
+    .catch(errorAlert)
 }
 
 // Decodes HTML entities and returns string with characters

@@ -454,6 +454,10 @@ body {
   margin: .5rem;
 }
 
+#game-end .result-card #save-score {
+  display: none;
+}
+
 .game-header {
   display: -webkit-box;
   display: -ms-flexbox;
