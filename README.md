@@ -27,6 +27,8 @@ Quizard was created as a sample project to explore designing vanilla JavaScript 
 
 ## Demonstration Video
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/335Ts0zUaas" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 [Quizard Youtube Demonstation](https://youtu.be/335Ts0zUaas)
 
 ## Technologies
